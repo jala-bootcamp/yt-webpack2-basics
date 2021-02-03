@@ -1,16 +1,24 @@
 pipeline {
-  agent { label 'ubuntu-node-01' }
+  // agent { label 'ubuntu-node-01' }
+  agent any
+
   triggers {
     pollSCM('0 */1 * * 1-5')
   }
+
   stages {
+
     stage('Build') {
       steps {
         checkout scm
 
-        
+        withGradle {
+          sh './gradlew packageJsonInstall npmRunbuild'
+        }
+
       }
     }
+
     stage('Deploy') {
       when {
         branch 'release'
