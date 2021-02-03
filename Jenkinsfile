@@ -1,5 +1,5 @@
 pipeline {
-  agent node { label 'ubuntu-node-01' }
+  agent { label 'ubuntu-node-01' }
   triggers {
     pollSCM('0 */1 * * 1-5')
   }
