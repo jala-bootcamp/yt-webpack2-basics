@@ -12,8 +12,9 @@
         "url": "https://github.com/jala-bootcamp/yt-webpack2-basics/issues"
     },
     "devDependencies": {
-        "webpack-cli": "^4.4.0",
-        "webpack": "^5.19.0"
+        "webpack": "^5.19.0",
+        "webpack-auto-inject-version": "^1.2.2",
+        "webpack-cli": "^4.4.0"
     },
     "name": "yt-webpack2-basics",
     "publishConfig": {
@@ -21,7 +22,7 @@
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "webpack"
+        "build": "webpack ./dist"
     },
     "homepage": "https://github.com/jala-bootcamp/yt-webpack2-basics#readme"
 }
