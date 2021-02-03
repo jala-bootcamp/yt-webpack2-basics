@@ -11,14 +11,20 @@ pipeline {
     stage('Build') {
       steps {
         checkout scm
-
         withGradle {
-          sh './gradlew packageJsonInstall npmRunbuild'
+          sh './gradlew registrySetup nodeSetup npmInstall npm_run_build'
         }
-
       }
     }
 
+    stage('Publish') {
+      steps {
+        withGradle {
+          sh './gradlew npm_publish'
+        }
+      }
+    }
+    
     stage('Deploy') {
       when {
         branch 'release'

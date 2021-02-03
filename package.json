@@ -17,7 +17,7 @@
     },
     "name": "yt-webpack2-basics",
     "publishConfig": {
-      "registry": "http://192.168.1.65:8081/repository/npm-private/"
+        "registry": "http://192.168.1.65:8081/repository/npm-private/"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",

@@ -1,10 +1,20 @@
 plugins {
-   id 'org.ysb33r.nodejs.base'    version '0.9.4'
-   id 'org.ysb33r.nodejs.npm'     version '0.9.4'
-   id 'org.ysb33r.nodejs.cmdline' version '0.9.4'
-   id 'org.ysb33r.nodejs.dev'     version '0.9.4'
- }
+  id "com.github.node-gradle.node" version "2.2.4"
+}
 
-nodejs {
-  executable version: '14.15.4'
+node {
+    download = true
+    version = project.nodeVersion
+    distBaseUrl = "https://nodejs.org/dist"
+    npmInstallCommand = "install"
+    workDir = file("${project.projectDir}/.gradle/nodejs")
+    npmWorkDir = file("${project.projectDir}/.gradle/npm")
+}
+
+task registrySetup {
+  doLast {
+    File npmrc = file(System.properties['user.home'] + '/.npmrc')
+    npmrc << project.registryUrl + "\n"
+    npmrc << "_authToken=" + project.authToken
+  }
 }
