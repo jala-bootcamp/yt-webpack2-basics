@@ -37,9 +37,7 @@ pipeline {
       steps {
         withGradle {
           sh '''
-            ./gradlew npm_publish' \
-                      -PregistryUrl=$NEXUS_REGISTRY_URL \
-                      -PauthToken=$NEXUS_AUTH_TOKEN
+            ./gradlew npm_publish
           '''
         }
       }
