@@ -1,0 +1,10 @@
+plugins {
+   id 'org.ysb33r.nodejs.base'    version '0.9.4'
+   id 'org.ysb33r.nodejs.npm'     version '0.9.4'
+   id 'org.ysb33r.nodejs.cmdline' version '0.9.4'
+   id 'org.ysb33r.nodejs.dev'     version '0.9.4'
+ }
+
+nodejs {
+  executable version: '14.15.4'
+}

@@ -2,3 +2,9 @@
 dist/
 node_modules
 package-lock.json
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
+.gradle/

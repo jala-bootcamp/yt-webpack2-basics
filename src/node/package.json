@@ -1,0 +1,24 @@
+{
+    "author": "",
+    "description": "This repository holds the source code of my Webpack 2 Basics.",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jala-bootcamp/yt-webpack2-basics.git"
+    },
+    "version": "0.0.0-alpha.0",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/jala-bootcamp/yt-webpack2-basics/issues"
+    },
+    "devDependencies": {
+        "webpack-cli": "^4.4.0",
+        "webpack": "^5.19.0"
+    },
+    "name": "yt-webpack2-basics",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack"
+    },
+    "homepage": "https://github.com/jala-bootcamp/yt-webpack2-basics#readme"
+}
