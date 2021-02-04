@@ -44,14 +44,14 @@ pipeline {
     }
 
     stage('Deploy') {
+      agent {
+        label 'fedora-node-02'
+      }
       when {
         branch 'main'
       }
       steps {
-        node {
-          label 'fedora-node-02'
           echo 'test in node'
-        }
       }
     }
   }
