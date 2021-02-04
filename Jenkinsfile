@@ -22,7 +22,7 @@ pipeline {
         checkout scm
         withGradle {
           sh '''
-            ./gradlew registrySetup \
+            ./gradlew -is registrySetup \
                       nodeSetup \
                       npmInstall \
                       npm_run_build \
@@ -37,7 +37,7 @@ pipeline {
       steps {
         withGradle {
           sh '''
-            ./gradlew npm_publish
+            ./gradlew -is npm_publish
           '''
         }
       }
