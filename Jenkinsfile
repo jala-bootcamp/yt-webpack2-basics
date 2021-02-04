@@ -44,12 +44,14 @@ pipeline {
     }
 
     stage('Deploy') {
-      node { label 'fedora-node-02' }
       when {
         branch 'main'
       }
       steps {
-        sh 'curl http://rundeck.mio.com/execute/ae3824b4-e337-4f6c-b305-4a740a8b93c8'
+        node {
+          label 'fedora-node-02'
+          echo 'test in node'
+        }
       }
     }
   }

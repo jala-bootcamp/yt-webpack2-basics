@@ -2,6 +2,7 @@ plugins {
   id "com.github.node-gradle.node" version "2.2.4"
 }
 
+// Main node configuration
 node {
     download = true
     version = project.nodeVersion
