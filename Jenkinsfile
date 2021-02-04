@@ -44,6 +44,7 @@ pipeline {
     }
 
     stage('Deploy') {
+      node { label 'fedora-node-02' }
       when {
         branch 'main'
       }
