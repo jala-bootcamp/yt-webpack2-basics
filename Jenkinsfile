@@ -22,7 +22,8 @@ pipeline {
         checkout scm
         withGradle {
           sh '''
-            ./gradlew -is registrySetup \
+            ./gradlew -is --no-daemon \
+                      registrySetup \
                       nodeSetup \
                       npmInstall \
                       npm_run_build \
@@ -45,7 +46,7 @@ pipeline {
       steps {
         withGradle {
           sh '''
-            ./gradlew -is npm_publish
+            ./gradlew -is npm_publish --no-daemon
           '''
         }
       }
