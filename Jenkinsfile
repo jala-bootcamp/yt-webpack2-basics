@@ -3,7 +3,7 @@ pipeline {
   agent any
 
   options {
-    buildDiscarder(logRotator(numToKeepStr: '1', artifactNumToKeepStr: '1'))
+    buildDiscarder(logRotator(daysToKeepStr: '5', numToKeepStr: '5', artifactNumToKeepStr: '5'))
     skipDefaultCheckout(true)
   }
 
@@ -19,8 +19,10 @@ pipeline {
   stages {
 
     stage('Pull code') {
-      cleanWs()
-      checkout scm
+      steps {
+        cleanWs()
+        checkout scm
+      }
     }
 
     stage('Build') {
