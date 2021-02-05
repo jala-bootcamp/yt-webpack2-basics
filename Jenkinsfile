@@ -29,8 +29,7 @@ pipeline {
       steps {
         withGradle {
           sh '''
-            ./gradlew -is --no-daemon \
-                      registrySetup \
+            ./gradlew -is registrySetup \
                       nodeSetup \
                       npmInstall \
                       npm_run_build \
@@ -53,7 +52,7 @@ pipeline {
       steps {
         withGradle {
           sh '''
-            ./gradlew -is npm_publish --no-daemon
+            ./gradlew -is npm_publish
           '''
         }
       }
