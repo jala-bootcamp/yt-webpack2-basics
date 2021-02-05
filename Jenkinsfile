@@ -33,6 +33,14 @@ pipeline {
       }
     }
 
+    // stage('Test') {
+    //   steps {
+    //     withGradle {
+    //       sh './gradlew npm_test'
+    //     }
+    //   }
+    // }
+
     stage('Publish') {
       steps {
         withGradle {

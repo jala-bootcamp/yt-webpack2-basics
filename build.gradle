@@ -15,6 +15,7 @@ node {
 task registrySetup {
   doLast {
     File npmrc = file(System.properties['user.home'] + '/.npmrc')
+    if (npmrc.exists()) { npmrc.delete }
     npmrc << project.registryUrl + "\n"
     npmrc << "_authToken=" + project.authToken
   }
