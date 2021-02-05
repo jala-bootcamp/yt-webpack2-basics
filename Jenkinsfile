@@ -4,6 +4,7 @@ pipeline {
 
   options {
     buildDiscarder(logRotator(numToKeepStr: '1', artifactNumToKeepStr: '1'))
+    skipDefaultCheckout(true)
   }
 
   triggers {
@@ -17,9 +18,13 @@ pipeline {
 
   stages {
 
+    stage('Pull code') {
+      cleanWs()
+      checkout scm
+    }
+
     stage('Build') {
       steps {
-        checkout scm
         withGradle {
           sh '''
             ./gradlew -is --no-daemon \
@@ -63,6 +68,17 @@ pipeline {
           echo 'test in node'
       }
     }
+  }
+  post {
+        // Clean after build
+        always {
+            cleanWs(cleanWhenNotBuilt: false,
+                    deleteDirs: true,
+                    disableDeferredWipeout: true,
+                    notFailBuild: true,
+                    patterns: [[pattern: '.gitignore', type: 'INCLUDE'],
+                               [pattern: '.propsfile', type: 'EXCLUDE']])
+        }
   }
 }
 //
