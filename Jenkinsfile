@@ -66,20 +66,22 @@ pipeline {
         branch 'main'
       }
       steps {
-          echo 'test in node'
+          sh '''
+            curl http://rundeck:4440/api/1/job/show/bd3e397c-5e6a-464c-b9d9-068b9f439486/run?
+          '''
       }
     }
   }
-  post {
-        // Clean after build
-        always {
-            cleanWs(cleanWhenNotBuilt: false,
-                    deleteDirs: true,
-                    disableDeferredWipeout: true,
-                    notFailBuild: true,
-                    patterns: [[pattern: '.gitignore', type: 'INCLUDE'],
-                               [pattern: '.propsfile', type: 'EXCLUDE']])
-        }
-  }
+  // post {
+  //       // Clean after build
+  //       always {
+  //           cleanWs(cleanWhenNotBuilt: false,
+  //                   deleteDirs: true,
+  //                   disableDeferredWipeout: true,
+  //                   notFailBuild: true,
+  //                   patterns: [[pattern: '.gitignore', type: 'INCLUDE'],
+  //                              [pattern: '.propsfile', type: 'EXCLUDE']])
+  //       }
+  // }
 }
 //
